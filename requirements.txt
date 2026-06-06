@@ -1,0 +1,35 @@
+# ============================================================================
+# AQI Predictor — PINNED working versions (verified on Python 3.10, Windows 11).
+# Use Python 3.10 ONLY. 3.12/3.14 break TensorFlow + hopsworks wheels.
+# Install:  pip install -r requirements.txt
+# ============================================================================
+
+# Core
+numpy==2.2.6
+pandas==2.3.3
+scikit-learn==1.7.2
+joblib==1.5.3
+python-dotenv==1.0.1
+requests==2.31.0
+
+# Cloud feature store + model registry (Hopsworks free tier)
+hopsworks==4.7.5
+# CRITICAL: sqlalchemy 2.0 REQUIRED. pandas>=2.3 read_sql cannot detect
+# sqlalchemy 1.4 connection objects -> hsfs online read fails with
+# "Query must be a string unless using sqlalchemy". Do NOT downgrade.
+sqlalchemy==2.0.50
+PyMySQL==1.2.0
+
+# Deep learning (LSTM model). CPU wheel fine. ~350MB download.
+tensorflow==2.21.0
+
+# Explainability
+shap==0.49.1
+
+# Web
+streamlit==1.58.0
+plotly==6.8.0
+flask==3.1.3
+
+# Test
+pytest==7.4.4
